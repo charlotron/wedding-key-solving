@@ -25,7 +25,7 @@ const WEDDING_CELEBRATION_DATE = "2022/05/21"
 function main() {
   const dividend = calcDividend();
   const divisor = calcDivisor();
-  const result = getMostWeightDigits(dividend / divisor);
+  const result = getMostWeightDecimalDigits(dividend / divisor);
   console.log("Result: ", result);
 }
 
@@ -50,11 +50,11 @@ function getColorAsInteger(colourAsHex) {
 function getDaysBetweenDates(fromDateStr, toDateStr) {
   const fromDate = new Date(fromDateStr);
   const toDate = new Date(toDateStr);
-  const timeOffset = toDate.getTime() - fromDate.getTime();
-  return Math.trunc(timeOffset / MS_IN_A_DAY);
+  const timeOffset = Math.abs(toDate.getTime() - fromDate.getTime());
+  return Math.ceil(timeOffset / MS_IN_A_DAY);
 }
 
-function getMostWeightDigits(valueWithDecimals) {
+function getMostWeightDecimalDigits(valueWithDecimals) {
   const decimalFactor = Math.pow(10, DECIMAL_DIGITS);
   const decimalPartOfValue = valueWithDecimals - Math.trunc(valueWithDecimals);
   return Math.trunc(decimalPartOfValue * decimalFactor);
