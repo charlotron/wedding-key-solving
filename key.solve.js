@@ -3,9 +3,7 @@
 const HEX_RADIX = 16;
 const HEX_COLORS = {
   RED: 'ff0000',
-  // PINK: 'ffc0cb',
   BLUE: '0000ff',
-  // BLACK: '000000',
 }
 const MS_IN_A_DAY = 1000 * 3600 * 24;
 const DECIMAL_DIGITS = 4;
