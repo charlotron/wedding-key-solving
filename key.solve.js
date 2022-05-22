@@ -3,7 +3,9 @@
 const HEX_RADIX = 16;
 const HEX_COLORS = {
   RED: 'ff0000',
-  PINK: 'ffc0cb'
+  PINK: 'ffc0cb',
+  BLUE: '0000ff',
+  BLACK: '000000',
 }
 const MS_IN_A_DAY = 1000 * 3600 * 24;
 const DECIMAL_DIGITS = 4;
@@ -35,9 +37,9 @@ function calcDividend() {
 }
 
 function calcDivisor() {
-  const elapsedDaysFromSigningToCelebrationDate = getDaysFromDate(WEDDING_SIGNING_DATE, WEDDING_CELEBRATION_DATE);
-  const elapsedDaysFromParisToCelebrationDate = getDaysFromDate(PARIS_HAND_REQUEST_DATE, WEDDING_CELEBRATION_DATE);
-  const elapsedDaysFromCommunionDates = getDaysFromDate(GROOM_COMMUNION_DATE, BRIDE_COMMUNION_DATE);
+  const elapsedDaysFromSigningToCelebrationDate = getDaysBetweenDates(WEDDING_SIGNING_DATE, WEDDING_CELEBRATION_DATE);
+  const elapsedDaysFromParisToCelebrationDate = getDaysBetweenDates(PARIS_HAND_REQUEST_DATE, WEDDING_CELEBRATION_DATE);
+  const elapsedDaysFromCommunionDates = getDaysBetweenDates(GROOM_COMMUNION_DATE, BRIDE_COMMUNION_DATE);
   return (elapsedDaysFromSigningToCelebrationDate + elapsedDaysFromParisToCelebrationDate) / elapsedDaysFromCommunionDates;
 }
 
@@ -47,7 +49,7 @@ function getColorAsInteger(colourAsHex) {
   return parseInt(colourAsHex, HEX_RADIX);
 }
 
-function getDaysFromDate(fromDateStr, toDateStr) {
+function getDaysBetweenDates(fromDateStr, toDateStr) {
   const fromDate = new Date(fromDateStr);
   const toDate = new Date(toDateStr);
   const timeOffset = toDate.getTime() - fromDate.getTime();
@@ -57,7 +59,7 @@ function getDaysFromDate(fromDateStr, toDateStr) {
 function getMostWeightDigits(valueWithDecimals) {
   const decimalFactor = Math.pow(10, DECIMAL_DIGITS);
   const decimalPartOfValue = valueWithDecimals - Math.trunc(valueWithDecimals);
-  return Math.trunc(decimalPartOfValue * decimalFactor); //TODO: TRUNCATE OR ROUND
+  return Math.trunc(decimalPartOfValue * decimalFactor);
 }
 
 //Run prog
