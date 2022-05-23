@@ -13,12 +13,12 @@ const DECIMAL_DIGITS = 4;
 const GROOM_FAVOURITE_COLOUR = HEX_COLORS.RED;
 const BRIDE_FAVOURITE_COLOUR = HEX_COLORS.BLUE;
 
-const BRIDE_COMMUNION_DATE = "1997/06/01";
-const GROOM_COMMUNION_DATE = "1995/05/01";
+const BRIDE_COMMUNION_DATE = '1997/06/01';
+const GROOM_COMMUNION_DATE = '1995/05/01';
 
-const PARIS_HAND_REQUEST_DATE = "2019/12/13";
-const WEDDING_SIGNING_DATE = "2021/07/01";
-const WEDDING_CELEBRATION_DATE = "2022/05/21"
+const PARIS_HAND_REQUEST_DATE = '2019/12/13';
+const WEDDING_SIGNING_DATE = '2021/07/01';
+const WEDDING_CELEBRATION_DATE = '2022/05/21'
 
 // ------ MAIN PROG
 
@@ -26,7 +26,7 @@ function main() {
   const dividend = calcDividend();
   const divisor = calcDivisor();
   const result = getMostWeightDecimalDigits(dividend / divisor);
-  console.log("Result: ", result);
+  console.log('Result: ', result);
 }
 
 function calcDividend() {
